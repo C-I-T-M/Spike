@@ -31,21 +31,21 @@ puls_180 = 500
 pwm.set_pwm_freq(50)
 
 """Vectores de combinaciones posibles:"""
-TODO = range(2, 14) 					#El rango va dependiendo de las conexiones de los servos en el modulo PCA9685
+TODO = range(0, 12) 					#El rango va dependiendo de las conexiones de los servos en el modulo PCA9685
 	
 #Separar por lado  						(revisar documento de conexiones para saber cual es cual)
-Izquierda = range(2, 8)
-Derecha = range(8, 14)
+Izquierda = range(0, 6)
+Derecha = range(6, 12)
 
 #Separar por partes
-femurs = range(12, 1, -2)
-tarsos = range(3, 14, 2)
+femurs = range(10, -1, -2)
+tarsos = range(1, 12, 2)
 
 #Separado partes y lado
-femur_I = [2, 4, 6]
-tarso_I = [3, 5, 7]
-femur_D = [8, 10, 12]
-tarso_D = [9, 11, 13]
+femur_I = [0, 2, 4]
+tarso_I = [1, 3, 5]
+femur_D = [6, 8, 10]
+tarso_D = [7, 9, 11]
 
 """Partes independientes: """ 
 FIT, TIT, FIM, TIM, FIB, TIB, FDT, TDT, FDM, TDM, FDB, TDB = TODO
@@ -536,7 +536,7 @@ try:
 	"""
 	#-----------------------------------------------------------------------------------------------------------------------------------------------------------
 	
-except KeyboardInterrupt:	#Esta interrupción sucede cuando en la terminar de la raspberry realizamos el comando ctrl+c para interrumpir el código
+except KeyboardInterrupt:	#Esta interrupción sucede cuando en la terminal de la raspberry realizamos el comando ctrl+c para interrumpir el código
 	"""Lineas MUY importantes, no quitar por nada: """
 	for i in range(15):			#For para hacer que los servos dejen de moverse (en caso de que se encuentren en algun movimiento)
 		pwm.set_pwm(i, 0, 0)
